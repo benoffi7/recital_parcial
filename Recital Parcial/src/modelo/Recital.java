@@ -1,5 +1,7 @@
 package modelo;
 
+import modelo.entradas.Entrada;
+
 import java.util.HashMap;
 import java.util.HashSet;
 

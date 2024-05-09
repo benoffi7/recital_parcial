@@ -1,6 +1,6 @@
-package modelo;
+package modelo.entradas;
 
-public class Entrada
+public abstract class Entrada
 {
     private int id;
     private float precio;
@@ -14,7 +14,7 @@ public class Entrada
         return id;
     }
 
-    public float getPrecio() {
+    private float getPrecio() {
         return precio;
     }
 
@@ -41,5 +41,11 @@ public class Entrada
         if (o == null || getClass() != o.getClass()) return false;
         Entrada entrada = (Entrada) o;
         return id == entrada.id;
+    }
+    public abstract String obtenerTipo();
+
+    public float obtenerPrecioTotal()
+    {
+        return precio;
     }
 }
