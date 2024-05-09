@@ -34,7 +34,7 @@ public class Main {
        // getEntrada(new EntradaGeneral());
        // getEntrada(new EntradaVIP());
 
-
+        System.out.println("Hola!");
 
     }
 
@@ -54,4 +54,6 @@ public class Main {
     {
 
     }
+
+
 }
