@@ -1,10 +1,20 @@
 package modelo;
 
+import java.util.HashMap;
+import java.util.HashSet;
+
 public class Recital
 {
     private String nombre;
     private String fecha;
     private String lugar;
+
+    //private HashMap<String, HashMap<String,Entrada>> entradas;
+
+    //private HashSet<Entrada> entradas;
+
+    private HashMap<String,HashSet<Entrada>> entradas;
+
 
     public Recital()
     {
