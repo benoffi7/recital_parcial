@@ -30,6 +30,6 @@ public class EntradaVIP extends Entrada{
     public String toString() {
         return "EntradaVIP{" +
                 "beneficio='" + beneficio + '\'' +
-                "} " + super.toString();
+                "}\"Precio total: "+obtenerPrecioTotal()+ '\'' + super.toString();
     }
 }
