@@ -193,4 +193,14 @@ public class Recital implements IVentaEntradas
         return vendida;
     }
 
+    @Override
+    public String toString() {
+        return "Recital{" +
+                "nombre='" + nombre + '\'' +
+                ", fecha='" + fecha + '\'' +
+                ", lugar='" + lugar + '\'' +
+                ", entradas=" + entradas +
+                '}';
+    }
+
 }
