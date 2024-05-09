@@ -122,12 +122,12 @@ public class Recital implements IVentaEntradas
     {
         int vendidas = 0;
         HashSet<Entrada> entradaHashSet = entradas.get(tipo);
-        Iterator<Entrada> entradaIterator = entradaHashSet.iterator();
-        while (entradaIterator.hasNext())
-        {
-            if (!entradaIterator.next().isDisponibilidad())
-            {
-                vendidas++;
+        if (entradaHashSet != null) {
+            Iterator<Entrada> entradaIterator = entradaHashSet.iterator();
+            while (entradaIterator.hasNext()) {
+                if (!entradaIterator.next().isDisponibilidad()) {
+                    vendidas++;
+                }
             }
         }
         return vendidas;
