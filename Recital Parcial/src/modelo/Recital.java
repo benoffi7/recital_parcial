@@ -141,7 +141,7 @@ public class Recital implements IVentaEntradas
             Iterator<Entrada> entradaIterator = entradaHashSet.iterator();
             while (entradaIterator.hasNext()) {
                 Entrada entrada = entradaIterator.next();
-                if (entrada.isDisponibilidad()) {
+                if (entrada.isDisponibilidad()){
                     rta += entrada.toString() + "\n";
                 }
             }

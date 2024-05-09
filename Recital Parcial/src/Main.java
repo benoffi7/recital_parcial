@@ -12,7 +12,6 @@ public class Main {
        Recital recital = new Recital("El recital Mas Gonzalo que el mismo Gonzalo", "03/05/24", "Santiago Del Estero");
        menu(recital);
 
-        System.out.println(recital.toString());
 
 
 
@@ -27,10 +26,11 @@ public class Main {
                 Ingrese 2 si desea modificar el lugar del Recital.
                 Ingrese 3 para cargar una Entrada al Recital.
                 Ingrese 4 para vender una Entrada.
-                Ingrese 5 para obtener la cantidad de Entradas por un tipo especifico. 
+                Ingrese 5 para obtener la cantidad de Entradas por un tipo especifico.
                 Ingrese 6 para obtener la cantidad de Entradas vendidas por tipo
                 Ingrese 7 para mostrar todas las Entradas disponibles para su venta.
-                """);
+                Ingrese 8 para mostrar el total recaudado por las ventas.
+                Ingrese 9 para mostrar todo el recital.""");
 
 
 
@@ -40,8 +40,10 @@ public class Main {
         int opSwitch=0;
         String opWhile="";
         String auxString =""; //usada para modificaciones de Strings
-        int auxInt; //usada para modificaciones de int
+        int auxInt=0; //usada para modificaciones de int
         Entrada auxEntrada;
+        float auxFloat=0;
+
         do {
 
             opcionesMenu();
@@ -125,12 +127,25 @@ public class Main {
                     System.out.println(recital.devolverListadoEntradasDisponibles(auxString.toUpperCase()));
                     break;
                 case 8:
+                   auxFloat=recital.devolverTotalRecaudado();
+                    System.out.println("TOTAL RECAUDADO: "+auxFloat);
+                    break;
+                case 9:
+                    System.out.println(recital);
+                    break;
 
+
+                default:
+                    System.out.println("ERROR, asignacion invalida. REINTENTAR/salir");
+                    break;
 
             }
 
-            System.out.println("Desea continuar en el sistema?(si/no)");
-            opWhile= scanner.next();
+
+                System.out.println("Desea continuar en el sistema?(si/no)");
+                opWhile= scanner.next();
+
+
         }while(opWhile.equalsIgnoreCase("si"));
 
     }
