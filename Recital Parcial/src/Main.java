@@ -33,7 +33,15 @@ public class Main {
 
     public static void asisCargarMuchasEntradas(Recital eventoDestino)
     {
-        // por implementar
+        char decision = 's';
+        while (decision == 's')
+        {
+            System.out.println("----------------------------");
+            asisCargarUnaEntrada(eventoDestino);
+            System.out.println("----------------------------");
+            System.out.print("Desea seguir cargando? (s/n): ");
+            decision = scanner1.next().charAt(0);
+        }
     }
 
     public static void asisCargarUnaEntrada(Recital eventoDestino) {
@@ -47,6 +55,7 @@ public class Main {
         // Primer paso: preguntar el tipo de entrada
         do {
             System.out.println("Seleccione el tipo de entrada que quiere: 'general' o 'vip'");
+            scanner1.nextLine();
             tipoEntrada = scanner1.nextLine().toLowerCase();
 
             // Comprobamos que el usuario use bien el cerebro y haya puesto bien el nombre
@@ -62,6 +71,7 @@ public class Main {
         {
             do {
                 System.out.println("Intoduzca que zona quiere: 'platea', 'campo' o 'codo'");
+                scanner1.nextLine();
                 zonaTmp = scanner1.nextLine().toLowerCase();
 
                 if (!(zonaTmp.equals("platea") || zonaTmp.equals("campo") || zonaTmp.equals("codo"))) {
