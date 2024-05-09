@@ -1,8 +1,6 @@
 package modelo;
 
 import modelo.entradas.Entrada;
-import modelo.entradas.EntradaGeneral;
-import modelo.entradas.EntradaVIP;
 import modelo.interfaces.IVentaEntradas;
 
 import java.util.HashMap;
@@ -112,7 +110,12 @@ public class Recital implements IVentaEntradas
 
     public int obtenerCantidadEntradasTipo(String tipo)
     {
-        return entradas.get(tipo).size();
+        int rta=0;
+        HashSet<Entrada> auxHashSet = entradas.get(tipo);
+        if (auxHashSet != null) {
+            rta= auxHashSet.size();
+        }
+        return rta;
     }
 
     public int obtenerCantidadEntradasVendidasTipo(String tipo)
@@ -191,6 +194,14 @@ public class Recital implements IVentaEntradas
             }
         }
         return vendida;
+    }
+
+    public boolean isEntradasVacio(){ //devuelve true si esta vacio, false si no
+       boolean rta=false;
+        if(entradas.isEmpty()){
+            rta=true;
+        }
+        return rta;
     }
 
     @Override

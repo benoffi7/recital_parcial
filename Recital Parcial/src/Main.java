@@ -23,9 +23,10 @@ public class Main {
 
     public static void opcionesMenu(){
         System.out.println("""
-                Ingrese 1 si desea modificar la fecha del Recital
-                Ingrese 2 si desea modificar el lugar del Recital
-                Ingrese 3 para cargar una entrada al recital
+                Ingrese 1 si desea modificar la fecha del Recital.
+                Ingrese 2 si desea modificar el lugar del Recital.
+                Ingrese 3 para cargar una Entrada al Recital.
+                Ingrese 4 para obtener la cantidad de Entradas por un tipo especifico.
                 """);
 
 
@@ -80,7 +81,20 @@ public class Main {
                         System.out.println("ERROR, asignacion invalida..");
                     }
                     break;
+                case 4:
+                    System.out.println("Ingrese el tipo de entrada a buscar (VIP/GENERAL)");
+                    auxString= scanner.next();
+                    if(!recital.isEntradasVacio()){
+                        auxString=auxString.toUpperCase();
+                        int cantAux= recital.obtenerCantidadEntradasTipo(auxString);
+                        System.out.println("CANTIDAD DE ENTRADAS POR TIPO '"+auxString+"': "+cantAux);
 
+                    }else{
+                        System.out.println("ERROR, primero carga una entrada");
+                    }
+                    break;
+                case 5:
+                    
 
 
             }
