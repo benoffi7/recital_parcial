@@ -1,6 +1,13 @@
+import modelo.PartidoFutbol;
+import modelo.Recital;
 import modelo.entradas.Entrada;
 import modelo.entradas.EntradaGeneral;
 import modelo.entradas.EntradaVIP;
+import modelo.interfaces.IControlPublico;
+import modelo.interfaces.IVentaEntradas;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
 // then press Enter. You can now see whitespace characters in your code.
@@ -14,6 +21,37 @@ public class Main {
         Entrada entradaVIP = new EntradaVIP(2,"wifi");
         entradaVIP.obtenerPrecioTotal();
 
+
+        ArrayList<IVentaEntradas> iVentaEntradas = new ArrayList<>();
+        iVentaEntradas.add(new Recital());
+        iVentaEntradas.add(new PartidoFutbol());
+
+        venderEntradas(new Recital());
+
+        venderEntradas(new PartidoFutbol());
+        controlPublico(new PartidoFutbol());
+
+       // getEntrada(new EntradaGeneral());
+       // getEntrada(new EntradaVIP());
+
+
+
+    }
+
+    public static void venderEntradas (IVentaEntradas iVentaEntradas)
+    {
+
+    }
+
+    public static void controlPublico (IControlPublico iControlPublico)
+    {
+
+    }
+
+
+
+    public static void getEntrada(Entrada entrada)
+    {
 
     }
 }

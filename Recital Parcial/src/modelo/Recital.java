@@ -3,13 +3,14 @@ package modelo;
 import modelo.entradas.Entrada;
 import modelo.entradas.EntradaGeneral;
 import modelo.entradas.EntradaVIP;
+import modelo.interfaces.IVentaEntradas;
 
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
 
-public class Recital
+public class Recital implements IVentaEntradas
 {
     private String nombre;
     private String fecha;
