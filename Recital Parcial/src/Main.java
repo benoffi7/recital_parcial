@@ -29,6 +29,7 @@ public class Main {
                 Ingrese 4 para vender una Entrada.
                 Ingrese 5 para obtener la cantidad de Entradas por un tipo especifico. 
                 Ingrese 6 para obtener la cantidad de Entradas vendidas por tipo
+                Ingrese 7 para mostrar todas las Entradas disponibles para su venta.
                 """);
 
 
@@ -118,6 +119,12 @@ public class Main {
                         System.out.println("ERROR, primero carga una entrada");
                     }
                     break;
+                case 7:
+                    System.out.println("Ingrese el tipo de entrada a buscar (VIP/GENERAL)");
+                    auxString= scanner.next();
+                    System.out.println(recital.devolverListadoEntradasDisponibles(auxString.toUpperCase()));
+                    break;
+                case 8:
 
 
             }

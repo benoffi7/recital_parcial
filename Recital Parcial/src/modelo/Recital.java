@@ -122,10 +122,10 @@ public class Recital implements IVentaEntradas
     {
         int vendidas = 0;
         HashSet<Entrada> entradaHashSet = entradas.get(tipo);
-        if (entradaHashSet != null) {
+        if(entradaHashSet != null){
             Iterator<Entrada> entradaIterator = entradaHashSet.iterator();
-            while (entradaIterator.hasNext()) {
-                if (!entradaIterator.next().isDisponibilidad()) {
+            while (entradaIterator.hasNext()){
+                if (!entradaIterator.next().isDisponibilidad()){
                     vendidas++;
                 }
             }
@@ -137,13 +137,13 @@ public class Recital implements IVentaEntradas
     {
         String rta = "";
         HashSet<Entrada> entradaHashSet = entradas.get(tipo);
-        Iterator<Entrada> entradaIterator = entradaHashSet.iterator();
-        while (entradaIterator.hasNext())
-        {
-            Entrada entrada = entradaIterator.next();
-            if (entrada.isDisponibilidad())
-            {
-                rta += entrada.toString()+"\n";
+        if(entradaHashSet != null){
+            Iterator<Entrada> entradaIterator = entradaHashSet.iterator();
+            while (entradaIterator.hasNext()) {
+                Entrada entrada = entradaIterator.next();
+                if (entrada.isDisponibilidad()) {
+                    rta += entrada.toString() + "\n";
+                }
             }
         }
         return  rta;
