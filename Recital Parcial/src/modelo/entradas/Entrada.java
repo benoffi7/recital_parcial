@@ -48,4 +48,13 @@ public abstract class Entrada
     {
         return precio;
     }
+
+    @Override
+    public String toString() {
+        return "Entrada{" +
+                "id=" + id +
+                ", precio=" + precio +
+                ", disponibilidad=" + disponibilidad +
+                '}';
+    }
 }

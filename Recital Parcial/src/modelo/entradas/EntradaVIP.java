@@ -18,11 +18,18 @@ public class EntradaVIP extends Entrada{
 
     @Override
     public String obtenerTipo() {
-        return "Soy VIP";
+        return "VIP";
     }
 
     @Override
     public float obtenerPrecioTotal() {
         return super.obtenerPrecioTotal() * (float)1.5;
+    }
+
+    @Override
+    public String toString() {
+        return "EntradaVIP{" +
+                "beneficio='" + beneficio + '\'' +
+                "} " + super.toString();
     }
 }

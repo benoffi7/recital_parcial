@@ -16,6 +16,13 @@ public class EntradaGeneral extends Entrada
     @Override
     public String obtenerTipo()
     {
-        return "Soy General";
+        return "GENERAL";
+    }
+
+    @Override
+    public String toString() {
+        return "EntradaGeneral{" +
+                "zona='" + zona + '\'' +
+                "} " + super.toString();
     }
 }
