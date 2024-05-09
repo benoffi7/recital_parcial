@@ -95,8 +95,9 @@ public class Recital implements IVentaEntradas
 
      */
 
-    public void cargarEntrada(Entrada entrada, String tipo)
+    public boolean cargarEntrada(Entrada entrada, String tipo)
     {
+        boolean resultado = false;
         HashSet<Entrada> entradaHashSet ;
         if (entradas.containsKey(entrada.obtenerTipo())) //si ya tengo al menos una entrada vip
         {
@@ -107,7 +108,8 @@ public class Recital implements IVentaEntradas
             entradaHashSet = new HashSet<>();
             entradas.put(tipo,entradaHashSet);
         }
-        entradaHashSet.add(entrada); //agrego la nueva
+        resultado = entradaHashSet.add(entrada); //agrego la nueva
+        return resultado;
     }
 
     public int obtenerCantidadEntradasTipo(String tipo)

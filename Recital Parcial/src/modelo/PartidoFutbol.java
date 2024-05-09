@@ -6,8 +6,8 @@ import modelo.interfaces.IVentaEntradas;
 
 public class PartidoFutbol implements IVentaEntradas, IControlPublico {
     @Override
-    public void cargarEntrada(Entrada entrada, String tipo) {
-
+    public boolean cargarEntrada(Entrada entrada, String tipo) {
+        return false; // temporalmente para que no chille por implemetacion de boolean
     }
 
     @Override
