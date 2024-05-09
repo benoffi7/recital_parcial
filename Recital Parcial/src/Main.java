@@ -9,51 +9,28 @@ import modelo.interfaces.IVentaEntradas;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
 public class Main {
+
+    static int ultimoID;
+
     public static void main(String[] args) {
-        // Press Alt+Intro with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        EntradaGeneral entrada = new EntradaGeneral(1,"codo");
-        entrada.obtenerPrecioTotal();
+        /// #1: Sistema de entradas
+        Recital reci1 = new Recital("Tributo a The Beatles ft. Fabian Cubero", "10-may-2024", "El Fortin");
 
-        Entrada entradaVIP = new EntradaVIP(2,"wifi");
-        entradaVIP.obtenerPrecioTotal();
-
-
-        ArrayList<IVentaEntradas> iVentaEntradas = new ArrayList<>();
-        iVentaEntradas.add(new Recital());
-        iVentaEntradas.add(new PartidoFutbol());
-
-        venderEntradas(new Recital());
-
-        venderEntradas(new PartidoFutbol());
-        controlPublico(new PartidoFutbol());
-
-       // getEntrada(new EntradaGeneral());
-       // getEntrada(new EntradaVIP());
-
-        System.out.println("Hola!");
-
+        // Las entradas como tal
+        Entrada entrada1 = new EntradaGeneral(generarID(), "codo");
+        Entrada entrada2 = new EntradaVIP(generarID(), "CD con el recital grabado (volvimos a los 90)");
+        Entrada entrada3 = new EntradaGeneral(generarID(), "platea");
     }
 
-    public static void venderEntradas (IVentaEntradas iVentaEntradas)
+
+
+    
+
+    // Generacion de ID: es un static por lo que por puntero lo modifico
+    public static int generarID()
     {
-    //soy un cambio de la rama
+        ultimoID++;
+        return ultimoID;
     }
-
-    public static void controlPublico (IControlPublico iControlPublico)
-    {
-
-    }
-
-
-
-    public static void getEntrada(Entrada entrada)
-    {
-
-    }
-
-
 }
