@@ -110,9 +110,9 @@ public class Recital implements IVentaEntradas
         entradaHashSet.add(entrada); //agrego la nueva
     }
 
-    public int obtenerCantidadEntradasTipo(String tipo)
-    {
-        return entradas.get(tipo).size();
+    public int obtenerCantidadEntradasTipo(String tipo) {
+        HashSet<Entrada> entradaHashSet = entradas.get(tipo);
+        return (entradaHashSet != null) ? entradaHashSet.size() : 0;
     }
 
     public int obtenerCantidadEntradasVendidasTipo(String tipo)
@@ -191,6 +191,17 @@ public class Recital implements IVentaEntradas
             }
         }
         return vendida;
+    }
+
+    public boolean existeEntradaConId(int id) {
+        for (HashSet<Entrada> entradasPorTipo : entradas.values()) {
+            for (Entrada entrada : entradasPorTipo) {
+                if (entrada.getId() == id) {
+                    return true;
+                }
+            }
+        }
+        return false; // Si no se encuentra ninguna entrada con el ID especificado
     }
 
 }

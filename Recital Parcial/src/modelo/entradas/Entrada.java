@@ -37,10 +37,16 @@ public abstract class Entrada
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Entrada entrada = (Entrada) o;
-        return id == entrada.id;
+        boolean rta = false;
+        if(o !=null){
+            if(o instanceof Entrada){
+                Entrada aComparar = (Entrada) o;
+                if(((Entrada) o).getId() == getId()){
+                    rta = true;
+                }
+            }
+        }
+        return rta;
     }
     public abstract String obtenerTipo();
 
