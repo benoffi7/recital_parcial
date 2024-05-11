@@ -1,8 +1,6 @@
 package modelo;
 
 import modelo.entradas.Entrada;
-import modelo.entradas.EntradaGeneral;
-import modelo.entradas.EntradaVIP;
 import modelo.interfaces.IVentaEntradas;
 
 import java.util.HashMap;
@@ -112,19 +110,24 @@ public class Recital implements IVentaEntradas
 
     public int obtenerCantidadEntradasTipo(String tipo)
     {
-        return entradas.get(tipo).size();
+        int rta=0;
+        HashSet<Entrada> auxHashSet = entradas.get(tipo);
+        if (auxHashSet != null) {
+            rta= auxHashSet.size();
+        }
+        return rta;
     }
 
     public int obtenerCantidadEntradasVendidasTipo(String tipo)
     {
         int vendidas = 0;
         HashSet<Entrada> entradaHashSet = entradas.get(tipo);
-        Iterator<Entrada> entradaIterator = entradaHashSet.iterator();
-        while (entradaIterator.hasNext())
-        {
-            if (!entradaIterator.next().isDisponibilidad())
-            {
-                vendidas++;
+        if(entradaHashSet != null){
+            Iterator<Entrada> entradaIterator = entradaHashSet.iterator();
+            while (entradaIterator.hasNext()){
+                if (!entradaIterator.next().isDisponibilidad()){
+                    vendidas++;
+                }
             }
         }
         return vendidas;
@@ -134,13 +137,13 @@ public class Recital implements IVentaEntradas
     {
         String rta = "";
         HashSet<Entrada> entradaHashSet = entradas.get(tipo);
-        Iterator<Entrada> entradaIterator = entradaHashSet.iterator();
-        while (entradaIterator.hasNext())
-        {
-            Entrada entrada = entradaIterator.next();
-            if (entrada.isDisponibilidad())
-            {
-                rta += entrada.toString()+"\n";
+        if(entradaHashSet != null){
+            Iterator<Entrada> entradaIterator = entradaHashSet.iterator();
+            while (entradaIterator.hasNext()) {
+                Entrada entrada = entradaIterator.next();
+                if (entrada.isDisponibilidad()){
+                    rta += entrada.toString() + "\n";
+                }
             }
         }
         return  rta;
@@ -191,6 +194,24 @@ public class Recital implements IVentaEntradas
             }
         }
         return vendida;
+    }
+
+    public boolean isEntradasVacio(){ //devuelve true si esta vacio, false si no
+       boolean rta=false;
+        if(entradas.isEmpty()){
+            rta=true;
+        }
+        return rta;
+    }
+
+    @Override
+    public String toString() {
+        return "Recital{" +
+                "nombre='" + nombre + '\'' +
+                ", fecha='" + fecha + '\'' +
+                ", lugar='" + lugar + '\'' +
+                ", entradas=" + entradas +
+                '}';
     }
 
 }
